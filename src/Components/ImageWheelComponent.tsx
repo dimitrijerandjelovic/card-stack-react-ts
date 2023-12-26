@@ -69,6 +69,7 @@ const CardStackComponent = ({
           if (jumping && Math.abs(index) % nodes.length !== jumpTo) {
             transition(getDirection(index, jumpTo));
           } else {
+            _setSpeed(animationSpeed);
             setJumping(false);
           }
         }
@@ -135,6 +136,7 @@ const CardStackComponent = ({
       return;
     }
 
+    _setSpeed(animationSpeed / (Math.abs(index - i) / 2));
     setJumpTo(i);
     setJumping(true);
     transition(getDirection(index, i));
